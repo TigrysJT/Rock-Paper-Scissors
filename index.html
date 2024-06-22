@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>READY SET GO!</title>
+</head>
+<body>
+  <script>
+   console.log("hellow wowrld");
+
+   /*Create the function to deternmine rock paper or scissors*/
+
+function getComputerChoice(choice){
+  let ourChoice = Math.random();
+  let Object;
+if (ourChoice <= 0.33){
+  Object = "ROCK";
+} else if (ourChoice >= 0.33 && ourChoice <= 0.66) {
+  Object = "SCISSORS";
+} else {Object= "PAPER"}
+console.log(Object)
+}
+
+/*Create the function to obtain the playerrs choice*/
+
+function getHumanChoice(hChoice){
+hChoice = prompt("Please enter either: Rock, Paper or Scissors")
+hChoice = hChoice.toLowerCase();
+if (hChoice != "rock" || hChoice != "paper" || hChoice != "scissors"){
+  prompt("ERROR: Please enter a valid value");
+}
+console.log(hChoice)
+}
+
+console.log(getComputerChoice());
+console.log(getHumanChoice())
+
+
+
+  </script>
+</body>
+</html>
