@@ -3,13 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>READY SET GO!</title>
+  <script src="the_LOOKS.js" defer></script>
+
 </head>
 <body>
+
+<button id="rockBTN">rock</button>
+<button id="scissorsBTN">scissors</button>
+<button id="paperBTN">paper</button>
+<div id="container"> </div>
+  <h1 id="playerScore">  </h1>
+  <h2 id="pcScore">  </h2>
   <script>
    console.log("hellow wowrld");
   let humanScore = 0;
   let aiFutureTerminatorScore = 0;
-  playGame();
+
+
+  function updateScore(){
+  const pc_records = document.getElementById("pcScore")
+  const h_records = document.getElementById("playerScore")
+
+  h_records.textContent = "Human Score " + humanScore;;
+  pc_records.textContent = "PC Score " + aiFutureTerminatorScore;
+
+  if (aiFutureTerminatorScore === 5){
+    alert("WE HAVE A WINNER...... THE ROBOTS!")
+    humanScore = 0;
+    aiFutureTerminatorScore = 0
+  } else if (humanScore === 5){
+    alert("WE HAVE A WINNER? THE HUMAN!")
+    humanScore = 0;
+    aiFutureTerminatorScore = 0
+  }
+
+
+  }
+
+
+
+playRound()
    /*Create the function to deternmine rock paper or scissors*/
 
 function getComputerChoice(choice){
@@ -25,7 +58,7 @@ return Object1;
 }
 
 /*Create the function to obtain the playerrs choice*/
-
+/*
 function getHumanChoice(hInput){
 hInput = prompt("Please enter either: Rock, Paper or Scissors")
 let hChoice = hInput.toLowerCase();
@@ -35,29 +68,29 @@ if (hChoice !== "rock" && hChoice !== "scissors" && hChoice !== "paper" ){
 } else console.log(hChoice);
 return hChoice;
 }
+*/
 
 
-function playRound(humanChoice, computerChoice){
-  humanChoice = getHumanChoice();
+function playRound(hChoice, computerChoice){
   computerChoice = getComputerChoice();
-  if (humanChoice === computerChoice){
+  if (hChoice === computerChoice){
     alert("We have a draw! BOOOORRRRINGGGG");
-  } else if (humanChoice === "rock" && computerChoice === "scissors"){
+  } else if (hChoice === "rock" && computerChoice === "scissors"){
     alert("Silly robot, rock beats scissors!")
     return humanScore++;
-  } else if (computerChoice === "rock" && humanChoice === "scissors"){
+  } else if (computerChoice === "rock" && hChoice === "scissors"){
     alert("Silly human, rock beats scissors!") 
     return aiFutureTerminatorScore++;
-  } else if (humanChoice === "paper" && computerChoice === "rock"){
+  } else if (hChoice === "paper" && computerChoice === "rock"){
     alert("Silly robot, paper beats rock!")
     return humanScore++;
-  } else if (computerChoice === "paper" && humanChoice === "rock"){
+  } else if (computerChoice === "paper" && hChoice === "rock"){
     alert("Silly human, paper beats rock!")
     return aiFutureTerminatorScore++;
-  } else if (humanChoice === "scissors" && computerChoice === "paper"){
+  } else if (hChoice === "scissors" && computerChoice === "paper"){
     alert("Silly robot, scissors beats paper!")
     return humanScore++;
-  } else if (computerChoice === "scissors" && humanChoice === "paper"){
+  } else if (computerChoice === "scissors" && hChoice === "paper"){
     alert("Silly human, scissors beats paper!") 
     return aiFutureTerminatorScore++;
   } 
@@ -73,10 +106,8 @@ if (humanScore < aiFutureTerminatorScore){
   } else if (aiFutureTerminatorScore < humanScore){
    alert("Dem robots dont know what hit em. HUMAN PERSEVERANCE")
   } else {(console.log("we have a draw....... yay..."))}
-
-
-
-
   </script>
+
+
 </body>
 </html>
